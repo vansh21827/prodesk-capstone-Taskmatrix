@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   ArrowUpRight,
@@ -12,10 +12,18 @@ import {
 } from "lucide-react";
 import "./Dashboard.css";
 
-import { addProject } from "../store/projectsSlice";
+import {
+  createProject,
+  fetchProjects,
+  deleteProjectAsync,
+  updateProjectAsync,
+} from "../store/projectsSlice";
 
 function Dashboard() {
   const dispatch = useDispatch();
+  useEffect(() => {
+  dispatch(fetchProjects());
+}, [dispatch]);
 
   const projects = useSelector(
     (state) => state.projects?.items || []
@@ -75,7 +83,7 @@ function Dashboard() {
       : "Not set";
 
     dispatch(
-      addProject({
+      createProject({
         ...form,
         name: form.name.trim(),
         description: form.description.trim(),
