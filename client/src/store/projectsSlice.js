@@ -1,101 +1,233 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const initialProjects = [
-  {
-    id: 1,
-    name: "Website Redesign",
-    description: "Marketing website redesign and optimization",
-    status: "In Progress",
-    priority: "High",
-    progress: 78,
-    tasks: 18,
-    totalTasks: 24,
-    members: 6,
-    dueDate: "Aug 18, 2026",
-  },
-  {
-    id: 2,
-    name: "Mobile Application",
-    description: "Cross-platform mobile application development",
-    status: "In Progress",
-    priority: "Medium",
-    progress: 54,
-    tasks: 13,
-    totalTasks: 24,
-    members: 8,
-    dueDate: "Aug 24, 2026",
-  },
-  {
-    id: 3,
-    name: "Analytics Platform",
-    description: "Business intelligence and analytics dashboard",
-    status: "In Progress",
-    priority: "Medium",
-    progress: 32,
-    tasks: 8,
-    totalTasks: 25,
-    members: 5,
-    dueDate: "Sep 02, 2026",
-  },
-  {
-    id: 4,
-    name: "Customer Portal",
-    description: "Self-service customer management portal",
-    status: "Planning",
-    priority: "Low",
-    progress: 12,
-    tasks: 3,
-    totalTasks: 25,
-    members: 4,
-    dueDate: "Sep 15, 2026",
-  },
-];
+const API_URL = "http://localhost:5000/api/projects";
+
+// Get JWT token
+const getToken = () => {
+  return localStorage.getItem("token");
+};
+
+// Fetch all projects
+export const fetchProjects = createAsyncThunk(
+  "projects/fetchProjects",
+  async (_, { rejectWithValue }) => {
+    try {
+      const token = getToken();
+
+      if (!token) {
+        return rejectWithValue("Authentication required");
+      }
+
+      const response = await fetch(API_URL, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return rejectWithValue(data.message || "Failed to fetch projects");
+      }
+
+      return data.projects;
+    } catch (error) {
+      return rejectWithValue("Unable to connect to server");
+    }
+  }
+);
+
+// Create project
+export const createProject = createAsyncThunk(
+  "projects/createProject",
+  async (projectData, { rejectWithValue }) => {
+    try {
+      const token = getToken();
+
+      if (!token) {
+        return rejectWithValue("Authentication required");
+      }
+
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(projectData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return rejectWithValue(data.message || "Failed to create project");
+      }
+
+      return data.project;
+    } catch (error) {
+      return rejectWithValue("Unable to connect to server");
+    }
+  }
+);
+
+// Update project
+export const updateProjectAsync = createAsyncThunk(
+  "projects/updateProjectAsync",
+  async ({ id, ...projectData }, { rejectWithValue }) => {
+    try {
+      const token = getToken();
+
+      if (!token) {
+        return rejectWithValue("Authentication required");
+      }
+
+      const response = await fetch(`${API_URL}/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(projectData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return rejectWithValue(data.message || "Failed to update project");
+      }
+
+      return data.project;
+    } catch (error) {
+      return rejectWithValue("Unable to connect to server");
+    }
+  }
+);
+
+// Delete project
+export const deleteProjectAsync = createAsyncThunk(
+  "projects/deleteProjectAsync",
+  async (id, { rejectWithValue }) => {
+    try {
+      const token = getToken();
+
+      if (!token) {
+        return rejectWithValue("Authentication required");
+      }
+
+      const response = await fetch(`${API_URL}/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return rejectWithValue(data.message || "Failed to delete project");
+      }
+
+      return id;
+    } catch (error) {
+      return rejectWithValue("Unable to connect to server");
+    }
+  }
+);
 
 const projectsSlice = createSlice({
   name: "projects",
 
   initialState: {
-    items: initialProjects,
-    status: "ready",
+    items: [],
+    status: "idle",
+    error: null,
   },
 
   reducers: {
-    addProject: (state, action) => {
-      state.items.push({
-        ...action.payload,
-        id: Date.now(),
-        progress: 0,
-        tasks: 0,
-        totalTasks: 0,
-        members: Number(action.payload.members) || 0,
+    clearProjects: (state) => {
+      state.items = [];
+      state.status = "idle";
+      state.error = null;
+    },
+  },
+
+  extraReducers: (builder) => {
+    builder
+
+      // FETCH PROJECTS
+      .addCase(fetchProjects.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+
+      .addCase(fetchProjects.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.items = action.payload;
+        state.error = null;
+      })
+
+      .addCase(fetchProjects.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload;
+      })
+
+      // CREATE PROJECT
+      .addCase(createProject.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+
+      .addCase(createProject.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.items.unshift(action.payload);
+        state.error = null;
+      })
+
+      .addCase(createProject.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload;
+      })
+
+      // UPDATE PROJECT
+      .addCase(updateProjectAsync.pending, (state) => {
+        state.error = null;
+      })
+
+      .addCase(updateProjectAsync.fulfilled, (state, action) => {
+        const index = state.items.findIndex(
+          (project) => project._id === action.payload._id
+        );
+
+        if (index !== -1) {
+          state.items[index] = action.payload;
+        }
+
+        state.error = null;
+      })
+
+      .addCase(updateProjectAsync.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+
+      // DELETE PROJECT
+      .addCase(deleteProjectAsync.pending, (state) => {
+        state.error = null;
+      })
+
+      .addCase(deleteProjectAsync.fulfilled, (state, action) => {
+        state.items = state.items.filter(
+          (project) => project._id !== action.payload
+        );
+
+        state.error = null;
+      })
+
+      .addCase(deleteProjectAsync.rejected, (state, action) => {
+        state.error = action.payload;
       });
-    },
-
-    deleteProject: (state, action) => {
-      state.items = state.items.filter(
-        (project) => project.id !== action.payload
-      );
-    },
-
-    updateProject: (state, action) => {
-      const index = state.items.findIndex(
-        (project) => project.id === action.payload.id
-      );
-
-      if (index !== -1) {
-        state.items[index] = {
-          ...state.items[index],
-          ...action.payload,
-        };
-      }
-    },
   },
 });
 
-export const {
-  addProject,
-  deleteProject,
-  updateProject,
-} = projectsSlice.actions;
+export const { clearProjects } = projectsSlice.actions;
 
 export default projectsSlice.reducer;
