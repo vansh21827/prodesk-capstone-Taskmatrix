@@ -12,7 +12,6 @@ import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import ProjectDetails from "./pages/ProjectDetails";
 function Placeholder({ title }) {
   return (
     <div style={{ padding: "40px" }}>
