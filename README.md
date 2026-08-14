@@ -11,6 +11,10 @@
 
 The application follows a modern full-stack architecture with a React/Vite frontend, Redux Toolkit for global state management, an Express.js REST API, JWT authentication, and MongoDB for persistent data storage.
 
+https://prodesk-capstone-taskmatrix-lac.vercel.app/register
+https://prodesk-capstone-taskmatrix-lac.vercel.app/login
+https://prodesk-capstone-taskmatrix-lac.vercel.app/dashboard
+
 The project is being developed as an enterprise-oriented capstone application with emphasis on:
 
 - Scalable architecture
