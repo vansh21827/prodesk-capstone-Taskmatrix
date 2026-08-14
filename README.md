@@ -1,6 +1,6 @@
-**# prodesk-capstone-Taskmatrix
+# prodesk-capstone-Taskmatrix
 
-**# TaskMatrix – Agile Project Management Platform
+# TaskMatrix – Agile Project Management Platform
 
 TaskMatrix is a full-stack Agile Project Management application designed to help teams manage projects, tasks, team members, schedules, and project analytics from a centralized workspace.
 
