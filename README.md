@@ -1,109 +1,115 @@
-# prodesk-capstone-Taskmatrix
-
 # TaskMatrix – Agile Project Management Platform
 
-TaskMatrix is a full-stack Agile Project Management application designed to help teams manage projects, tasks, team members, schedules, and project analytics from a centralized workspace.
-
-The application provides a modern dashboard-driven interface with secure authentication, project management, task management, team collaboration, calendar planning, analytics, and user settings.
+> An enterprise-oriented full-stack project management platform designed to help teams plan projects, manage tasks, collaborate with members, monitor progress, and maintain a centralized workspace.
 
 ---
 
-## Project Information
+## Project Overview
 
-| Category | Details |
-|---|---|
-| Project Name | TaskMatrix |
-| Project Type | Enterprise Agile Project Management |
-| Designated Track | Full-Stack / Frontend Engineering |
-| Repository | `prodesk-capstone-TaskMatrix` |
-| Frontend | React + Vite |
-| Backend | Node.js + Express.js |
-| Database | MongoDB |
-| State Management | Redux Toolkit |
-| Authentication | JWT |
-| Styling | CSS |
-| Icons | Lucide React |
-| Deployment | Vercel / Cloud Deployment |
+**TaskMatrix** is a full-stack Agile Project Management application developed as an enterprise-level capstone project.
+
+The platform provides a centralized workspace where project managers and team members can create and manage projects, organize tasks, monitor project progress, collaborate with team members, and analyze workspace activity.
+
+The application follows a modular frontend architecture using React and Redux Toolkit and a RESTful backend architecture using Node.js, Express.js, MongoDB, and JWT-based authentication.
 
 ---
 
-# 1. Project Overview
+## RFP Selection
 
-Modern software teams require a centralized platform to manage projects, tasks, team members, deadlines, and productivity.
+### Selected Application
 
-TaskMatrix addresses this requirement by providing a single workspace where users can:
+**Option 3 – TaskMatrix**
 
-- Authenticate securely
+### Application Category
+
+**Agile Project Management Platform**
+
+### Designated Track
+
+**Full-Stack Web Development**
+
+### Project Type
+
+**Enterprise-Level Capstone Application**
+
+---
+
+# Product Requirements Document (PRD)
+
+## Problem Statement
+
+Modern teams often manage projects, tasks, team members, deadlines, and progress across multiple disconnected tools.
+
+This creates problems such as:
+
+- Lack of centralized project information
+- Difficulty tracking task progress
+- Poor visibility into project status
+- Manual project and task management
+- Difficulty monitoring team activity
+- Limited workspace-level analytics
+- Fragmented collaboration workflows
+
+TaskMatrix addresses these challenges by providing a centralized project management workspace.
+
+---
+
+# Product Objective
+
+The primary objective of TaskMatrix is to provide a scalable and user-friendly platform that enables teams to:
+
 - Create and manage projects
-- Track project progress
-- Manage tasks
+- Create, assign, and track tasks
+- Monitor project progress
 - Manage team members
-- View calendar schedules
-- Analyze project performance
-- Configure account settings
-
-The application follows a modular architecture so that additional enterprise features can be integrated in future development cycles.
-
----
-
-# 2. Problem Statement
-
-Teams often rely on multiple tools for project management, task tracking, communication, and reporting.
-
-This can result in:
-
-- Scattered project information
-- Poor visibility into project progress
-- Difficulty tracking deadlines
-- Manual task management
-- Limited team visibility
-- Inefficient reporting
-
-TaskMatrix aims to provide a unified project management workspace that improves project visibility, task organization, and team coordination.
+- Track deadlines
+- View workspace activity
+- Analyze project and task performance
+- Secure user accounts and application data
 
 ---
 
-# 3. Project Objectives
+# Target Users
 
-The primary objectives of TaskMatrix are:
+TaskMatrix is designed for:
 
-1. Provide secure user authentication.
-2. Provide centralized project management.
-3. Provide task tracking and organization.
-4. Provide team management capabilities.
-5. Provide calendar-based project planning.
-6. Provide analytics and progress visualization.
-7. Provide centralized account and security settings.
-8. Implement scalable frontend state management.
-9. Implement REST-based backend APIs.
-10. Persist application data using MongoDB.
+- Project Managers
+- Team Leads
+- Developers
+- Designers
+- Startup Teams
+- Students and Academic Teams
+- Small and Medium-Sized Organizations
 
 ---
 
-# 4. Core Features
+# Core Features
 
-## Priority 0 – Base MVP
+Features are prioritized according to the sprint requirements.
 
-The following features form the core MVP:
+## P0 – Mandatory Features
 
 ### Authentication
 
 - User registration
 - User login
-- JWT authentication
-- Password hashing using bcrypt
-- Protected API routes
-- Authenticated user retrieval
+- JWT-based authentication
+- Protected application routes
+- Logout functionality
+- Password management
+- Authentication state management
 
 ### Dashboard
 
+- Workspace overview
 - Active project statistics
 - Total task statistics
 - Completed task statistics
 - Pending task statistics
 - Active project overview
-- Team activity
-- Recent tasks
+- Project progress visualization
+- Recent task activity
+- Team activity section
 
 ### Project Management
 
@@ -114,10 +120,9 @@ The following features form the core MVP:
 - Edit projects
 - Delete projects
 - Track project progress
-- Track team members
-- Track project priority
-- Track project status
-- Track project due dates
+- Track project members
+- Track project deadlines
+- Track project task completion
 
 ### Task Management
 
@@ -125,81 +130,127 @@ The following features form the core MVP:
 - View tasks
 - Update tasks
 - Delete tasks
-- Task status management
-- Task priority management
+- Assign tasks
+- Task priority
+- Task status
 - Task due dates
 - Project-based task organization
+- Task search
+
+---
+
+# P1 – Priority Features
 
 ### Team Management
 
 - View team members
 - Add team members
-- Manage team information
-- View team participation
+- Manage member information
+- Assign members to projects
+- Display team participation
 
 ### Calendar
 
-- View project and task schedules
-- Track upcoming deadlines
-- Organize project activities by date
+- Project deadlines
+- Task deadlines
+- Workspace schedule
+- Date-based task visibility
 
-### Analytics
+### Search
 
-- Project progress
-- Task completion
-- Team activity
-- Productivity statistics
+Global workspace search for:
 
-### Settings
+- Projects
+- Tasks
+- Team members
 
-- Account settings
+### User Settings
+
+- Account information
+- Profile management
 - Security settings
 - Password management
+- Application preferences
 
 ---
 
-# 5. Technology Stack
+# P2 – Stretch Goals
+
+### Analytics
+
+- Project performance
+- Task completion statistics
+- Team productivity
+- Project progress analysis
+- Workspace activity metrics
+
+### Advanced Project Management
+
+- Project-level task management
+- Task progress calculation
+- Automatic project progress calculation
+- Project completion statistics
+
+### Optimization
+
+- API error handling
+- Loading states
+- Empty states
+- Responsive design
+- Performance optimization
+- Secure API communication
+- Reusable components
+- Centralized state management
+
+---
+
+# Tech Stack
 
 ## Frontend
 
-- React
-- Vite
-- React Router
-- Redux Toolkit
-- React Redux
-- Lucide React
-- CSS
+| Technology | Purpose |
+|---|---|
+| React.js | Frontend application |
+| Vite | Development and build tool |
+| Redux Toolkit | Global state management |
+| React Redux | Redux integration |
+| React Router | Client-side routing |
+| Lucide React | UI icons |
+| CSS3 | Styling and responsive UI |
+| JavaScript ES6+ | Application logic |
+
+---
 
 ## Backend
 
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- JSON Web Token
-- bcryptjs
-- dotenv
-- CORS
+| Technology | Purpose |
+|---|---|
+| Node.js | Backend runtime |
+| Express.js | REST API framework |
+| MongoDB | Database |
+| Mongoose | MongoDB object modeling |
+| JWT | Authentication |
+| bcrypt | Password hashing |
+| dotenv | Environment configuration |
+| CORS | Cross-origin communication |
+
+---
 
 ## Development Tools
 
 - Git
 - GitHub
-- VS Code
-- Postman / cURL
-- MongoDB Atlas
+- Visual Studio Code
+- Postman
+- MongoDB / MongoDB Atlas
 - Figma
 - Draw.io
-
-## Deployment
-
-- Vercel for frontend deployment
-- Cloud-hosted backend
-- MongoDB Atlas for database hosting
+- Vercel
+- npm
 
 ---
 
-# 6. System Architecture
+# System Architecture
 
 TaskMatrix follows a client-server architecture.
 
@@ -211,21 +262,24 @@ TaskMatrix follows a client-server architecture.
                                ▼
                     ┌─────────────────────┐
                     │   React Frontend    │
-                    │      + Vite         │
+                    │       + Vite        │
                     └──────────┬──────────┘
                                │
-                               ▼
-                    ┌─────────────────────┐
+                    ┌──────────▼──────────┐
                     │   Redux Toolkit     │
                     │    Global State     │
                     └──────────┬──────────┘
                                │
-                         REST API / JWT
+                               ▼
+                    ┌─────────────────────┐
+                    │    REST API Layer   │
+                    │      Express.js     │
+                    └──────────┬──────────┘
                                │
                                ▼
                     ┌─────────────────────┐
-                    │  Express.js Server  │
-                    │     Node.js         │
+                    │   Authentication    │
+                    │     JWT + bcrypt    │
                     └──────────┬──────────┘
                                │
                                ▼
