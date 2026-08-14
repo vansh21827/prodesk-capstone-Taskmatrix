@@ -53,8 +53,8 @@ The project follows the ProDesk IT internal RFP selection requirements.
 | Phase | Priority | Objective | Status |
 |---|---|---|---|
 | Phase 1 | P0 | Base MVP | Completed |
-| Phase 2 | P1 | UI/UX Wireframes | Completed / In Progress |
-| Phase 3 | P2 | Architecture & Optimization | In Progress |
+| Phase 2 | P1 | UI/UX Wireframes | Completed  |
+| Phase 3 | P2 | Architecture & Optimization | Completed |
 
 ---
 
@@ -835,9 +835,13 @@ Additional recommended Figma screens:
 # 22. Figma Deliverable
 
 Public Figma file:
-
-```text
-[ADD YOUR PUBLIC FIGMA LINK HERE]
+| <img width="603" height="825" alt="Screenshot 2026-08-14 200219" src="https://github.com/user-attachments/assets/dcdc1581-2063-42c0-a904-04db39b7e8c0" /> | <img width="598" height="658" alt="Screenshot 2026-08-14 200239" src="https://github.com/user-attachments/assets/b57aa2dd-edbe-43e0-b3a1-395929868b14" /> |
+<img width="1883" height="907" alt="Screenshot 2026-08-14 200314" src="https://github.com/user-attachments/assets/278cf83a-e699-4ce1-91e1-270d77f6da83" />
+<img width="1888" height="906" alt="Screenshot 2026-08-14 200332" src="https://github.com/user-attachments/assets/0934eeff-9f2a-4b82-814e-8fa34bf55b68" />
+<img width="1878" height="902" alt="Screenshot 2026-08-14 200354" src="https://github.com/user-attachments/assets/8f020182-7857-42b5-a637-379829b972ac" />
+<img width="1881" height="907" alt="Screenshot 2026-08-14 200419" src="https://github.com/user-attachments/assets/d729bfa3-ea75-4e91-9949-3ed33c446c47" />
+<img width="1874" height="901" alt="Screenshot 2026-08-14 200440" src="https://github.com/user-attachments/assets/d986f95a-4e86-4d10-a6cd-b48b5489ce29" />
+<img width="1879" height="896" alt="Screenshot 2026-08-14 200456" src="https://github.com/user-attachments/assets/5ea94e26-d759-4fe0-b123-13f5666ca26f" />
 ```
 
 README requirement:
@@ -849,10 +853,10 @@ README requirement:
 The Figma file should contain at minimum:
 
 ```text
-01 - Login
-02 - Register
-03 - Dashboard
-04 - Projects
+01 - http://localhost:5173/login
+02 - http://localhost:5173/register
+03 - http://localhost:5173/dashboard
+04 - http://localhost:5173/projects
 ```
 
 Recommended:
@@ -1005,19 +1009,6 @@ coverage/
 .DS_Store
 ```
 
-Commit messages should be descriptive.
-
-Examples:
-
-```text
-feat: add project CRUD integration
-fix: resolve project loading state
-feat: connect login with JWT authentication
-docs: update frontend architecture
-fix: prevent blank projects page
-```
-
----
 
 # 28. Testing & Validation
 
@@ -1560,29 +1551,29 @@ Before submitting the capstone, verify all items below:
 
 ### Phase 1
 
-- [x] TaskMatrix selected
-- [x] Base MVP implemented
-- [x] Authentication implemented
-- [x] Project CRUD implemented
-- [x] Backend API connected
-- [x] MongoDB connected
-- [x] PRD documented
+- [ ] TaskMatrix selected
+- [ ] Base MVP implemented
+- [ ] Authentication implemented
+- [ ] Project CRUD implemented
+- [ ] Backend API connected
+- [ ] MongoDB connected
+- [ ] PRD documented
 
 ### Phase 2
 
-- [x] Figma created
-- [x] Login wireframe
-- [x] Register wireframe
-- [x] Dashboard wireframe
-- [x] Project/Data Details wireframe
+- [ ] Figma created
+- [ ] Login wireframe
+- [ ]  Register wireframe
+- [ ] Dashboard wireframe
+- [ ] Project/Data Details wireframe
 - [ ] Public Figma link added
 - [ ] Figma link verified
 
 ### Phase 3
 
-- [x] Frontend architecture documented
-- [x] Redux state tree documented
-- [x] API endpoints documented
+- [ ] Frontend architecture documented
+- [ ] Redux state tree documented
+- [ ] API endpoints documented
 - [ ] ERD exported
 - [ ] ERD added to repository
 - [ ] State tree exported
