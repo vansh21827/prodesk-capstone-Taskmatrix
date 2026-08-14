@@ -11,7 +11,8 @@ import Calendar from "./pages/Calendar";
 import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
-
+import Register from "./pages/Register";
+import ProjectDetails from "./pages/ProjectDetails";
 function Placeholder({ title }) {
   return (
     <div style={{ padding: "40px" }}>
@@ -25,6 +26,7 @@ function App() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
       <Route
         path="/"
         element={<Navigate to="/dashboard" replace />}
@@ -44,6 +46,10 @@ function App() {
         <Route path="/analytics" element={<Analytics />} />
 
         <Route path="/settings" element={<Settings />} />
+        <Route
+  path="/projects/:id"
+  element={<ProjectDetails />}
+/>
 
       </Route>
 
