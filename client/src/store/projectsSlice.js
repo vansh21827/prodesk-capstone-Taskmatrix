@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const API_URL = "http://localhost:5000/api/projects";
+const API_URL = "https://taskmatrix-server.onrender.com/api/projects";
 
 // Get JWT token
 const getToken = () => {
