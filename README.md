@@ -834,7 +834,6 @@ Additional recommended Figma screens:
 
 # 22. Figma Deliverable
 
-Public Figma file:
 <img width="603" height="825" alt="Screenshot 2026-08-14 200219" src="https://github.com/user-attachments/assets/dcdc1581-2063-42c0-a904-04db39b7e8c0" />
 <img width="598" height="658" alt="Screenshot 2026-08-14 200239" src="https://github.com/user-attachments/assets/b57aa2dd-edbe-43e0-b3a1-395929868b14" />
 <img width="1883" height="907" alt="Screenshot 2026-08-14 200314" src="https://github.com/user-attachments/assets/278cf83a-e699-4ce1-91e1-270d77f6da83" />
